@@ -1,0 +1,19 @@
+{
+  "name": "masbihalekolhay",
+  "version": "1.0.0",
+  "description": ".מהווה פלטפורמה לחיבור בין אנשים וחברות אשר יש להם מזון שלא נצרך להם לבין אנשים או חברות שמעוניינים בקבלת המזון",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elhananIsrael/MasbihaLekolHay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elhananIsrael/MasbihaLekolHay/issues"
+  },
+  "homepage": "https://github.com/elhananIsrael/MasbihaLekolHay#readme"
+}
