@@ -6,7 +6,7 @@
   "angular-cli": {},
   "engines": {
     "node": "8.11.1",
-    "npm": "6.1.0"    
+    "npm": "6.1.0"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/elhananIsrael/MasbihaLekolHay/issues"
   },
-"homepage": "https://github.com/elhananIsrael/MasbihaLekolHay#readme",
+  "homepage": "https://github.com/elhananIsrael/MasbihaLekolHay#readme",
   "scripts": {
     "ng": "ng",
     "build": "ng build --prod",

@@ -18,8 +18,7 @@
             "polyfills": "client/polyfills.ts",
             "assets": [
               "client/assets",
-              "client/favicon.ico"
-            ],
+              "client/icons"            ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
@@ -87,7 +86,7 @@
             ],
             "assets": [
               "client/assets",
-              "client/favicon.ico"
+              "client/icons"
             ]
           }
         },
