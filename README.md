@@ -1,5 +1,5 @@
-# ξωαις μλμ ηι-Masbiha Lekol Hay
-.ξδεεδ τμθτεψξδ μηιαεψ αιο ΰπωιν εηαψεϊ ΰωψ ιω μδν ξζεο ωμΰ πφψκ μδν μαιο ΰπωιν ΰε ηαψεϊ ωξςεπιιπιν αχαμϊ δξζεο
+# ΧΧ©Χ‘Χ™ΧΆ ΧΧ›Χ Χ—Χ™-Masbiha Lekol Hay
+.ΧΧ”Χ•Χ•Χ” Χ¤ΧΧΧ¤Χ•Χ¨ΧΧ” ΧΧ—Χ™Χ‘Χ•Χ¨ Χ‘Χ™Χ ΧΧ Χ©Χ™Χ Χ•Χ—Χ‘Χ¨Χ•Χª ΧΧ©Χ¨ Χ™Χ© ΧΧ”Χ ΧΧ–Χ•Χ Χ©ΧΧ Χ Χ¦Χ¨Χ ΧΧ”Χ ΧΧ‘Χ™Χ ΧΧ Χ©Χ™Χ ΧΧ• Χ—Χ‘Χ¨Χ•Χª Χ©ΧΧΆΧ•Χ Χ™Χ™Χ Χ™Χ Χ‘Χ§Χ‘ΧΧª Χ”ΧΧ–Χ•Χ
 
 Is a platform for connecting people and companies that have food that they do not need and people or companies interested in receiving food.
 
