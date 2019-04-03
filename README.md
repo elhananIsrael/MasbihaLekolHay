@@ -2,11 +2,11 @@
 .מהווה פלטפורמה לחיבור בין אנשים וחברות אשר יש להם מזון שלא נצרך להם לבין אנשים או חברות שמעוניינים בקבלת המזון
 
 Is a platform for connecting people and companies that have food that they do not need and people or companies interested in receiving food.
-/n
-/n
-/n
-/n
-/n
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 This project uses the [MEAN stack](https://en.wikipedia.org/wiki/MEAN_(software_bundle)):
 * [**M**ongoose.js](http://www.mongoosejs.com) ([MongoDB](https://www.mongodb.com)): database
 * [**E**xpress.js](http://expressjs.com): backend framework
