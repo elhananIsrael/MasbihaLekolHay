@@ -33,13 +33,12 @@ Other tools and technologies used:
 2. `npm run dev`: concurrently execute MongoDB, Angular build, TypeScript compiler and Express server.
 3. `npm run prod`: run the project with a production bundle and AOT compilation
 
-
+<br/>
 
 # משימות שצריכים לעשות בפרויקט
 נראה לי שנכתוב פה רשימה של משימות וכל אחד יוסיף עוד משימות אם נזכר בעוד משימות 
 בנוסף כל אחד יעדכן על איזה משימה הוא עובד כרגע. 
 
-<br/>
 <br/>
 
 ## **:רשימת משימות**
@@ -52,7 +51,7 @@ Other tools and technologies used:
 * session 
 *
 
-###(frontend)צד לקוח
+### (frontend)צד לקוח
 * בלוג
 * צ'אט
 * הכנסת והורדת מדיה לאתר
