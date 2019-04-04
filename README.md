@@ -52,7 +52,7 @@ Other tools and technologies used:
 * session 
 *
 
-###(frontend)צד לקוח
+### (frontend)צד לקוח
 * בלוג
 * צ'אט
 * הכנסת והורדת מדיה לאתר
