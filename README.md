@@ -32,3 +32,39 @@ Other tools and technologies used:
 1. Run `mongod` and `mongo` serices (If you get any error like connection faild, just create the folder C:\data\db)
 2. `npm run dev`: concurrently execute MongoDB, Angular build, TypeScript compiler and Express server.
 3. `npm run prod`: run the project with a production bundle and AOT compilation
+
+
+
+# משימות שצריכים לעשות בפרויקט
+נראה לי שנכתוב פה רשימה של משימות וכל אחד יוסיף עוד משימות אם נזכר בעוד משימות 
+בנוסף כל אחד יעדכן על איזה משימה הוא עובד כרגע. 
+
+<br/>
+<br/>
+
+## **:רשימת משימות**
+### משימות כלליות 
+* socket.io 
+* וכהנה גם המודולים -MVC	מבנה הפרויקט צד שרת יהיה תואם לארכיטקטורה 
+*
+### (backend)צד שרת
+* אימות משתמש בהתחברות
+* session 
+*
+
+###(frontend)צד לקוח
+* בלוג
+* צ'אט
+* הכנסת והורדת מדיה לאתר
+* LOGIN מסך 
+
+
+### :משה עובד כרגע על
+*
+*
+
+### :אלחנן עובד כרגע על
+*
+*
+
+## !בעזרת השי''ת נעשה ונצליח
