@@ -30,7 +30,7 @@ export default class UserCtrl extends BaseCtrl {
         const newUserData: any = {};
         newUserData.username = userData.email.split('@')[0];
         newUserData.email = userData.email;
-        newUserData.role = 'admin';
+        newUserData.role = 'customer'; //only customer can use google login
 
         const obj = new this.model(newUserData);
         obj.save((err, item) => {
