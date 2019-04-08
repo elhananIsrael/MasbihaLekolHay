@@ -24,6 +24,10 @@ export class UserService {
     return this.http.post('/api/login', JSON.stringify(credentials), this.options);
   }
 
+  socialLogin(apiUrl: string, userData: any): Observable<any> {
+    return this.http.post(apiUrl, userData).map(res => res.json());
+  }
+
   getUsers(): Observable<any> {
     return this.http.get(this.getUrl).map(res => res.json());
   }

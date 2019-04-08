@@ -27,6 +27,29 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AttendanceReportComponent } from './attendance-report/attendance-report.component';
 
+import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+
+
+// Configs
+
+const googleLoginOptions: LoginOpt = {
+  scope: 'profile email'
+};
+
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('491617855106-ds9mf0jkasddogoc3o4tm2mhioqv7hh2.apps.googleusercontent.com', googleLoginOptions)
+  },
+
+]);
+
+export function provideConfig() {
+  return config;
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +73,8 @@ import { AttendanceReportComponent } from './attendance-report/attendance-report
     JwtModule,
     FormsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocialLoginModule // import Social Login Module
   ],
   providers: [// all are singleton
     AuthService,
@@ -60,7 +84,11 @@ import { AttendanceReportComponent } from './attendance-report/attendance-report
     UserService,
     EmployeeService,
     AppGlobals,
-    BaseService
+    BaseService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
   ],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

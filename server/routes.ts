@@ -18,6 +18,7 @@ export default function setRoutes(app) {
 
   // Users
   router.route('/login').post(userCtrl.login);
+  router.route('/google_login').post(userCtrl.googleLogin);
   router.route('/users').get(userCtrl.getAll);
   router.route('/users/count').get(userCtrl.count);
   router.route('/user').post(userCtrl.insert);

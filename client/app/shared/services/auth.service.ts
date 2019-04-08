@@ -21,6 +21,17 @@ export class AuthService {
     }
   }
 
+  socialLogin(apiUrl, userData) {
+    return this.userService.socialLogin(apiUrl, userData).map(res => res).map(
+      res => {
+        localStorage.setItem('token', res.token);
+        const decodedUser = this.decodeUserFromToken(res.token);
+        this.setCurrentUser(decodedUser);
+        return this.loggedIn;
+      }
+    );
+  }
+
   login(emailAndPassword) {
     return this.userService.login(emailAndPassword).map(res => res.json()).map(
       res => {
