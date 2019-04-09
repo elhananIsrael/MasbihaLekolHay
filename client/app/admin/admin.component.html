@@ -16,17 +16,32 @@
       <tbody *ngIf="users.length === 0">
         <tr>
           <td colspan="4">There are no registered users.</td>
-        </tr>  
+        </tr>
       </tbody>
       <tbody>
         <tr *ngFor="let user of users">
-          <td>{{user.username}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.role}}</td>
           <td>
-            <button mat-raised-button color="warn" (click)="deleteUser(user)" [disabled]="auth.currentUser._id === user._id">Delete</button>           
+            <input type="text" [(ngModel)]="user.username">
+            <!-- {{user.username}} -->
           </td>
-        </tr>  
+          <td>
+            <input type="text" [(ngModel)]="user.email">
+          </td>
+          <td>
+            <mat-select [value]="selected" name="role" [(ngModel)]="user.role"
+              [disabled]="auth.currentUser._id === user._id" placeholder="Role">
+              <mat-option value="users">User</mat-option>
+              <mat-option value="employee">Employee</mat-option>
+              <mat-option value="admin">Admin</mat-option>
+            </mat-select>
+            <!-- <input type="text" [(ngModel)]="user.role"> -->
+          </td>
+          <td>
+            <button mat-raised-button color="accent" (click)="deleteUser(user)"
+              [disabled]="auth.currentUser._id === user._id">Delete</button>
+            <button mat-raised-button color="primary" (click)="saveUser(user)">Save</button>
+          </td>
+        </tr>
       </tbody>
     </table>
   </mat-card-content>

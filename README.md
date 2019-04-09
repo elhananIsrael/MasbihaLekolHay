@@ -68,4 +68,12 @@ Other tools and technologies used:
 * הכנסת והורדת מדיה לאתר
 *
 
-## !בעזרת השי''ת נעשה ונצליח
+### תוספות בהמשך
+* change in user managment for save to edit and after that to save
+* in register chagen role to default to user
+* login google change to register and not to login
+* change account to all users (admin) and show only current user logged in instead of two possbilties
+
+
+#
+# !בעזרת השי''ת נעשה ונצליח
