@@ -29,6 +29,7 @@ import { AttendanceReportComponent } from './attendance-report/attendance-report
 
 import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
+import { CatalogComponent } from './catalog/catalog.component';
 
 
 // Configs
@@ -62,7 +63,8 @@ export function provideConfig() {
     AdminComponent,
     NotFoundComponent,
     EmployeeComponent,
-    AttendanceReportComponent
+    AttendanceReportComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,
