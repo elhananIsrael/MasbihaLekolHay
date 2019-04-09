@@ -17,6 +17,7 @@ import { AuthGuardLogin, AuthGuardAdmin } from './shared/services';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'attendances', component: AttendancesComponent },
   { path: 'attendanceReport', component: AttendanceReportComponent },
   { path: 'employees', component: EmployeeComponent },
