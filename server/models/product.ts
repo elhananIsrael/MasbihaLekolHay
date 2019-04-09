@@ -1,9 +1,10 @@
 import * as mongoose from 'mongoose';
-import {url} from 'inspector';
 
 const productSchema = new mongoose.Schema({
   productID: String,
   name: String,
+  description: String,
+  quantity: Number,
   isAvailable: Boolean,
   price: Number,
   phone: Number,
