@@ -93,7 +93,7 @@ app.post('/chatUploadFile', function (req, res){
       message: file.name,
       mimeType: file.type,
       fileSizeInBytes: file.size,
-      downloadUrl:  `http://localhost:4200/chatUploads/${file.name}`
+      downloadUrl:  `http://localhost:3000/chatUploads/${file.name}`
     };
 
     console.log("Returning file message:");
