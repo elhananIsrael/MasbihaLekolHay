@@ -16,12 +16,10 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-select formControlName="role" placeholder="Role">
-          <mat-option>None</mat-option>
-          <mat-option value="users">users</mat-option>
-          <mat-option value="admin">Admin</mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-select formControlName="role" placeholder="Role">
+            <mat-option select value="users">User</mat-option>
+          </mat-select>
+        </mat-form-field>
 
       <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
     </form>

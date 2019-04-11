@@ -38,4 +38,11 @@ export class AdminComponent implements OnInit {
     );
   }
 
+  saveUser(user) {
+    this.userService.editUser(user).subscribe(
+      res => this.toast.setMessage('user edited successfully!', 'success'),
+      error => console.log(error)
+    );
+  }
+
 }
