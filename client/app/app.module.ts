@@ -30,6 +30,7 @@ import { AttendanceReportComponent } from './attendance-report/attendance-report
 import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { CatalogComponent } from './catalog/catalog.component';
+import {MatGridListModule} from '@angular/material';
 
 
 // Configs
@@ -76,7 +77,9 @@ export function provideConfig() {
     FormsModule,
     FormsModule,
     ReactiveFormsModule,
-    SocialLoginModule // import Social Login Module
+    SocialLoginModule,
+    MatGridListModule,
+    // import Social Login Module
   ],
   providers: [// all are singleton
     AuthService,
