@@ -43,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 //
-const configChat: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
+const configChat: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 
 // Configs
