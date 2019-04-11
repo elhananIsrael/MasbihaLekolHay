@@ -12,7 +12,7 @@ export default class UserCtrl extends BaseCtrl {
       if (!user) { return res.sendStatus(403); }
       user.comparePassword(req.body.password, (error, isMatch) => {
         if (!isMatch) { return res.sendStatus(403); }
-        const token = jwt.sign({ user: user }, process.env.SECRET_TOKEN); // , { expiresIn: 10 } seconds
+        const token = jwt.sign({ user: user }, process.env.SECRET_TOKEN, { expiresIn: '15m' }); // , { expiresIn: 10 } seconds
         res.status(200).json({ token: token });
       });
     });
@@ -24,7 +24,7 @@ export default class UserCtrl extends BaseCtrl {
     this.model.findOne({ email: userData.email }, (err, user) => {
 
       if (user) {
-        const token = jwt.sign({ user: user }, process.env.SECRET_TOKEN); // , { expiresIn: 10 } seconds
+        const token = jwt.sign({ user: user }, process.env.SECRET_TOKEN, { expiresIn: '15m' }); // , { expiresIn: 10 } seconds
         res.status(200).json({ token: token });
       } else {
         const newUserData: any = {};
@@ -41,7 +41,7 @@ export default class UserCtrl extends BaseCtrl {
           if (err) {
             return console.error(err);
           }
-          const token = jwt.sign({ user: item }, process.env.SECRET_TOKEN); // , { expiresIn: 10 } seconds
+          const token = jwt.sign({ user: item }, process.env.SECRET_TOKEN, { expiresIn: '15m' }); // , { expiresIn: 10 } seconds
           res.status(200).json({ token: token });
         });
 
