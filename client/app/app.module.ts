@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { MaterialModule } from './shared/modules';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +33,7 @@ import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { CatalogComponent } from './catalog/catalog.component';
 import {MatGridListModule} from '@angular/material';
+
 
 
 // Configs
@@ -75,10 +78,11 @@ export function provideConfig() {
     SharedModule,
     JwtModule,
     FormsModule,
-    FormsModule,
     ReactiveFormsModule,
     SocialLoginModule,
     MatGridListModule,
+    HttpClientModule
+
     // import Social Login Module
   ],
   providers: [// all are singleton

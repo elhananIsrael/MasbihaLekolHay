@@ -1,13 +1,15 @@
 import * as mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema({
-  productID: String,
+  _id: String,
   name: String,
   description: String,
+  makerID: String,
+  makerName: String,
   quantity: Number,
   isAvailable: Boolean,
   price: Number,
-  phone: Number,
+  phone: String,
   address: String,
   url: String
 });
