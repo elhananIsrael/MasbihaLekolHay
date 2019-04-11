@@ -44,6 +44,7 @@ body {
   padding: 15px;
   margin: 15px auto;
   background-color: #fff;
+  border-style: inset;
 }
 
 @media (max-width: 991px) {
