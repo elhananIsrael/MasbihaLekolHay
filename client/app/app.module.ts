@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+
 
 import { MaterialModule } from './shared/modules';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +18,7 @@ import {
   AppGlobals, BaseService
 } from './shared/services';
 
+
 import { AppComponent } from './app.component';
 import { AttendancesComponent } from './attendances/attendances.component';
 import { AboutComponent } from './about/about.component';
@@ -25,12 +29,21 @@ import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { ChatComponent } from './chat/chat.component';
+
 import { AttendanceReportComponent } from './attendance-report/attendance-report.component';
 
 import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { CatalogComponent } from './catalog/catalog.component';
-import {MatGridListModule} from '@angular/material';
+import { MatGridListModule} from '@angular/material';
+
+import { NgChatModule } from 'ng-chat';
+import { HttpClientModule } from '@angular/common/http';
+
+
+//
+const configChat: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 
 
 // Configs
@@ -65,7 +78,8 @@ export function provideConfig() {
     NotFoundComponent,
     EmployeeComponent,
     AttendanceReportComponent,
-    CatalogComponent
+    CatalogComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +92,14 @@ export function provideConfig() {
     FormsModule,
     ReactiveFormsModule,
     SocialLoginModule,
+    HttpClientModule,
     MatGridListModule,
+    NgChatModule,
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    NgChatModule,
+    SocketIoModule.forRoot(configChat) 
     // import Social Login Module
   ],
   providers: [// all are singleton
