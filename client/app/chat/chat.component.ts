@@ -3,22 +3,30 @@ import { ChatAdapter } from 'ng-chat';
 import { SocketIOAdapter } from './../shared/services/socketio-adapter'
 import { Socket } from 'ng-socket-io';
 import { Http } from '@angular/http';
+import { AuthService } from '../shared/services/auth.service';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
+
 export class ChatComponent {
-  title = 'chat';
+  title = 'Welcome to the chat';
   
   userId: string;
   username: string;
 
   public adapter: ChatAdapter;
 
-  constructor(private socket: Socket, private http: Http) {
-    this.InitializeSocketListerners();  
+  constructor(private auth: AuthService,
+              private userService: UserService,
+              private socket: Socket, private http: Http) {
+       
+    this.username = auth.currentUser.username;
+    this.InitializeSocketListerners(); 
+    this.joinRoom(); 
   }
 
   public joinRoom(): void 
