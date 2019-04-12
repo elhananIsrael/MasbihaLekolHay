@@ -14,6 +14,8 @@ import { UserService } from '../shared/services/user.service';
 
 export class ChatComponent {
   title = 'Welcome to the chat';
+  isLoading = true;
+
   
   userId: string;
   username: string;
@@ -27,6 +29,7 @@ export class ChatComponent {
     this.username = auth.currentUser.username;
     this.InitializeSocketListerners(); 
     this.joinRoom(); 
+    this.isLoading = false;
   }
 
   public joinRoom(): void 
