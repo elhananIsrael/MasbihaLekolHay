@@ -4,8 +4,8 @@
             <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="mat-button"
                 mat-button>
                 <span class="mat-button-wrapper">
-                    <mat-icon>home</mat-icon>
-                    <span>Home</span>
+                    <i class="material-icons">Home</i>
+                    <span> Home</span>
                 </span>
             </a>
             <a routerLink="/employees" routerLinkActive="active" class="mat-button" mat-button
@@ -28,59 +28,68 @@
             </a>
             <a routerLink="/login" class="mat-button" mat-button routerLinkActive="active" *ngIf="!auth.loggedIn">
                 <span class="mat-button-wrapper">
-                    <span>Login</span>
+                    <i class="material-icons">account_circle</i>
+                    <span> Login</span>
                 </span>
             </a>
             <a routerLink="/register" class="mat-button" mat-button routerLinkActive="active" *ngIf="!auth.loggedIn">
                 <span class="mat-button-wrapper">
-                    <span>Register</span>
+                    <i class="material-icons">person_add</i>
+                    <span> Register</span>
                 </span>
             </a>
             <a routerLink="/account" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
                 <span class="mat-button-wrapper">
-                    <span>Account ({{auth.currentUser.username}})</span>
+                    <i class="material-icons">settings_applications</i>
+                    <span> Account ({{auth.currentUser.username}})</span>
                 </span>
             </a>
             <a routerLink="/admin" class="mat-button" mat-button routerLinkActive="active"
                 *ngIf="auth.loggedIn && auth.isAdmin">
                 <span class="mat-button-wrapper">
-                    <span>Admin</span>
+                    <i class="material-icons">supervisor_account</i>
+                    <span> Admin</span>
                 </span>
             </a>
             <a routerLink="/catalog" class="mat-button" mat-button routerLinkActive="active">
                 <span class="mat-button-wrapper">
-                    <span>Catalog</span>
+                    <i class="material-icons">fastfood</i>
+                    <span> Catalog</span>
                 </span>
             </a>
-            
+
             <a routerLink="/chat" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
                 <span class="mat-button-wrapper">
-                    <span>Chat</span>
+                    <i class="material-icons">chat</i>
+                    <span> Chat</span>
                 </span>
             </a>
 
             <a routerLink="/about" class="mat-button" mat-button routerLinkActive="active">
                 <span class="mat-button-wrapper">
-                    <span>About</span>
+                    <mat-icon>info</mat-icon>
+                    <span> About</span>
                 </span>
             </a>
 
             <a routerLink="/logout" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
                 <span class="mat-button-wrapper">
-                    <span>Logout</span>
+                    <i class="material-icons">exit_to_app</i>
+                    <span> Logout</span>
                 </span>
             </a>
-            
 
-<span style="flex: 1 1 auto;" ></span>
-            <a routerLink="/my-cart" class="mat-icon-button"  align="right" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
+
+            <span style="flex: 1 1 auto;"></span>
+            <a routerLink="/my-cart" class="mat-icon-button" align="right" mat-button routerLinkActive="active"
+                *ngIf="auth.loggedIn">
                 <span class="mat-button-wrapper">
-                    <span class="fa fa-cart-arrow-down"  style="font-size:24px;" aria-hidden="true"></span>
+                    <span class="fa fa-cart-arrow-down" style="font-size:24px;" aria-hidden="true"></span>
                 </span>
             </a>
-            
-        </mat-toolbar-row>         
-        
+
+        </mat-toolbar-row>
+
     </mat-toolbar>
     <mat-sidenav-container class="app-container">
         <router-outlet></router-outlet>
