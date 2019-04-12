@@ -14,7 +14,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { AttendanceReportComponent } from './attendance-report/attendance-report.component';
 import { CatalogComponent} from './catalog/catalog.component';
 import { MyCartComponent} from './views/my-cart/my-cart.component';
-
+import { ChatComponent } from './chat/chat.component';
 
 import { AuthGuardLogin, AuthGuardAdmin } from './shared/services';
 
@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   {path: 'catalog', component: CatalogComponent},
   {path: 'my-cart', component: MyCartComponent},
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuardLogin] },  
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
 ];

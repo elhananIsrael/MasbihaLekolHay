@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <mat-card-header>
+    {{title}}
+  </mat-card-header>
+
+
+
+  <div *ngIf="!userId" class="form-box">
+    <h3>Join room</h3>
+
+
+    <form #chatInfoForm="ngForm" (ngSubmit)="joinRoom()">
+
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="username" name="name" #name="ngModel">
+
+      <button type="submit" class="btn btn-success" [disabled]="!chatInfoForm.form.valid">Join</button>
+    </form>
+  </div>
+</div>
+
+<ng-chat *ngIf="userId" [adapter]="adapter" [userId]="userId" [historyEnabled]="false"
+  [fileUploadUrl]="'http://localhost:3000/chatUploadFile'" [theme]="'dark-theme'"></ng-chat>
