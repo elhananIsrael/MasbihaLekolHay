@@ -13,6 +13,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AttendanceReportComponent } from './attendance-report/attendance-report.component';
 import { CatalogComponent} from './catalog/catalog.component';
+import { MyCartComponent} from './views/my-cart/my-cart.component';
+
 
 import { AuthGuardLogin, AuthGuardAdmin } from './shared/services';
 
@@ -28,6 +30,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   {path: 'catalog', component: CatalogComponent},
+  {path: 'my-cart', component: MyCartComponent},
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
 ];

@@ -1,0 +1,40 @@
+
+<h1 class="mat-card-header" style="text-align:center;" >my cart</h1>
+
+<mat-card>
+  <mat-card-header>my cart - items list</mat-card-header>
+  <mat-card-content>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-default">
+        <tr>
+          <th>NAME</th>
+          <th>MAKER NAME</th>
+          <th>QUANTITY</th>
+          <th>PRICE</th>
+          <th>ADDRESS</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="productsList.length === 0">
+        <tr>
+          <td colspan="6">There are no products in your cart.</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="productsList.length>0">
+        <tr *ngFor="let product_item of productsList">
+          <td>{{product_item.name}}</td>
+          <td>{{product_item.makerName}}</td>
+          <td>{{product_item.quantity}}</td>
+          <td>{{product_item.price}}</td>
+          <td>{{product_item.address}}</td>
+          <td>
+            <button class="btn btn-sm btn-warning" (click)="enableEditing(product_item)">
+              <i class="fa fa-pencil"></i> Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteProduct(product_item)">
+              <i class="fa fa-trash"></i> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>

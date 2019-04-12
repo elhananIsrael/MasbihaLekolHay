@@ -57,7 +57,17 @@
                     <span>Logout</span>
                 </span>
             </a>
-        </mat-toolbar-row>
+            
+
+<span style="flex: 1 1 auto;" ></span>
+            <a routerLink="/my-cart" class="mat-icon-button"  align="right" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
+                <span class="mat-button-wrapper">
+                    <span class="fa fa-cart-arrow-down"  style="font-size:24px;" aria-hidden="true"></span>
+                </span>
+            </a>
+            
+        </mat-toolbar-row>         
+        
     </mat-toolbar>
     <mat-sidenav-container class="app-container">
         <router-outlet></router-outlet>

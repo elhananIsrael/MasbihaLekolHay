@@ -33,6 +33,7 @@ import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { CatalogComponent } from './catalog/catalog.component';
 import {MatGridListModule} from '@angular/material';
+import { MyCartComponent } from './views/my-cart/my-cart.component';
 
 
 
@@ -68,7 +69,8 @@ export function provideConfig() {
     NotFoundComponent,
     EmployeeComponent,
     AttendanceReportComponent,
-    CatalogComponent
+    CatalogComponent,
+    MyCartComponent
   ],
   imports: [
     BrowserModule,
