@@ -1,23 +1,27 @@
 <ng-container>
     <mat-toolbar color="primary" class="app-header">
         <mat-toolbar-row>
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="mat-button" mat-button>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="mat-button"
+                mat-button>
                 <span class="mat-button-wrapper">
                     <mat-icon>home</mat-icon>
                     <span>Home</span>
                 </span>
             </a>
-            <a routerLink="/employees" routerLinkActive="active" class="mat-button" mat-button *ngIf="auth.loggedIn && auth.isAdmin">
+            <a routerLink="/employees" routerLinkActive="active" class="mat-button" mat-button
+                *ngIf="auth.loggedIn && auth.isAdmin">
                 <span class="mat-button-wrapper">
                     <span>Employees</span>
                 </span>
             </a>
-            <a routerLink="/attendances" routerLinkActive="active" class="mat-button" mat-button *ngIf="auth.loggedIn && !auth.isAdmin">
+            <a routerLink="/attendances" routerLinkActive="active" class="mat-button" mat-button
+                *ngIf="auth.loggedIn && !auth.isAdmin">
                 <span class="mat-button-wrapper">
                     <span>Attendances</span>
                 </span>
             </a>
-            <a routerLink="/attendanceReport" routerLinkActive="active" class="mat-button" mat-button *ngIf="auth.loggedIn && !auth.isAdmin">
+            <a routerLink="/attendanceReport" routerLinkActive="active" class="mat-button" mat-button
+                *ngIf="auth.loggedIn && !auth.isAdmin">
                 <span class="mat-button-wrapper">
                     <span>Attendances Report</span>
                 </span>
@@ -37,21 +41,30 @@
                     <span>Account ({{auth.currentUser.username}})</span>
                 </span>
             </a>
-            <a routerLink="/admin" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
+            <a routerLink="/admin" class="mat-button" mat-button routerLinkActive="active"
+                *ngIf="auth.loggedIn && auth.isAdmin">
                 <span class="mat-button-wrapper">
                     <span>Admin</span>
                 </span>
             </a>
-          <a routerLink="/catalog" class="mat-button" mat-button routerLinkActive="active">
+            <a routerLink="/catalog" class="mat-button" mat-button routerLinkActive="active">
                 <span class="mat-button-wrapper">
                     <span>Catalog</span>
                 </span>
-          </a>
+            </a>
+            
+            <a routerLink="/chat" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
+                <span class="mat-button-wrapper">
+                    <span>Chat</span>
+                </span>
+            </a>
+
             <a routerLink="/about" class="mat-button" mat-button routerLinkActive="active">
                 <span class="mat-button-wrapper">
                     <span>About</span>
                 </span>
             </a>
+
             <a routerLink="/logout" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
                 <span class="mat-button-wrapper">
                     <span>Logout</span>
@@ -64,7 +77,7 @@
     </mat-sidenav-container>
     <mat-toolbar color="primary" class="app-footer">
         <div class="navbar-text m-auto">
- © !כל הזכויות שמורות להשי''ת ולעם ישראל יסוד כסא השי''ת בעולם
+            © !כל הזכויות שמורות להשי''ת ולעם ישראל יסוד כסא השי''ת בעולם
         </div>
     </mat-toolbar>
 </ng-container>

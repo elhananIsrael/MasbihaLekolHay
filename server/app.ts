@@ -45,7 +45,7 @@ db.once('open', () => {
 var usersCollection = [];
 
 // Express routes
-app.set("view engine", "vash");
+// app.set("view engine", "vash");
 
 app.use("/chatUploads", express.static(path.join(__dirname, 'Uploads')));
 

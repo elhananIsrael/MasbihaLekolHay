@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent, canActivate: [AuthGuardLogin] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   { path: 'catalog', component: CatalogComponent},
-  { path: 'chat', component: ChatComponent},  
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuardLogin] },  
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
 ];
