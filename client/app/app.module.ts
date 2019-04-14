@@ -40,6 +40,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import {MatGridListModule} from '@angular/material';
 import { MyCartComponent } from './views/my-cart/my-cart.component';
 import { NgChatModule } from 'ng-chat';
+import { MyUploadsComponent } from './views/my-uploads/my-uploads.component';
 
 
 //
@@ -80,7 +81,8 @@ export function provideConfig() {
     AttendanceReportComponent,
     CatalogComponent,
     MyCartComponent,
-    ChatComponent
+    ChatComponent,
+    MyUploadsComponent
   ],
   imports: [
     BrowserModule,

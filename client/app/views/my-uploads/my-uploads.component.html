@@ -1,0 +1,105 @@
+<h1 class="mat-card-header" style="text-align:center;" >my uploads</h1>
+
+<app-loading [condition]="isLoading"></app-loading>
+<app-toast [message]="toast.message"></app-toast>
+
+<mat-card>
+  <mat-card-header>Add new product</mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+
+      <mat-form-field>
+        <input matInput placeholder="Name" name="name" formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Description" name="description" formControlName="description">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="MakerID" name="makerID" formControlName="makerID">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="MakerName" name="makerName" formControlName="makerName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Quantity" name="quantity" formControlName="quantity">
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-select placeholder="Is available" name="isAvailable" formControlName="isAvailable">
+          <mat-option *ngFor="let blnType of booleanTypeList" [value]="blnType.value">
+            {{ blnType.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Price" name="price" formControlName="price">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Phone" name="phone" formControlName="phone">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Address" name="address" formControlName="address">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Url" name="url" formControlName="url">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit"  [disabled]="!addProductForm.valid" >Add</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+
+
+<mat-card>
+  <mat-card-header>my cart - items list</mat-card-header>
+  <mat-card-content>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-default">
+        <tr>
+          <th>NAME</th> 
+          <th>DESCRIPTION</th>                  
+          <th>QUANTITY</th>
+          <th>IS AVAILABLE</th>          
+          <th>PRICE</th>
+          <th>PHONE</th>
+          <th>ADDRESS</th>
+          <th>URL</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="productsList.length === 0">
+        <tr>
+          <td colspan="6">There are no products in your cart.</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="productsList.length>0">
+        <tr *ngFor="let product_item of productsList">
+          <td>{{product_item.name}}</td>
+          <td>{{product_item.description}}</td>
+          <td>{{product_item.quantity}}</td>
+          <td>{{product_item.isAvailable}}</td>
+          <td>{{product_item.price}}</td>
+          <td>{{product_item.phone}}</td>
+          <td>{{product_item.address}}</td>
+          <td>{{product_item.url}}</td>
+          <td>
+            <button class="btn btn-sm btn-warning" (click)="enableEditing(product_item)">
+              <i class="fa fa-pencil"></i> Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteProduct(product_item)">
+              <i class="fa fa-trash"></i> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>

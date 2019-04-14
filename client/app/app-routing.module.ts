@@ -15,6 +15,8 @@ import { AttendanceReportComponent } from './attendance-report/attendance-report
 import { CatalogComponent} from './catalog/catalog.component';
 import { MyCartComponent} from './views/my-cart/my-cart.component';
 import { ChatComponent } from './chat/chat.component';
+import { MyUploadsComponent } from './views/my-uploads/my-uploads.component';
+
 
 import { AuthGuardLogin, AuthGuardAdmin } from './shared/services';
 
@@ -31,7 +33,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   {path: 'catalog', component: CatalogComponent},
   {path: 'my-cart', component: MyCartComponent},
-  { path: 'chat', component: ChatComponent, canActivate: [AuthGuardLogin] },  
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuardLogin] },
+  {path: 'my-uploads', component: MyUploadsComponent},
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
 ];

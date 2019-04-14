@@ -65,6 +65,13 @@
                 </span>
             </a>
 
+             <a routerLink="/my-uploads" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
+                <span class="mat-button-wrapper">
+                    <i class="material-icons">cloud_upload</i>
+                    <span> My-Uploads</span>
+                </span>
+            </a>
+
             <a routerLink="/about" class="mat-button" mat-button routerLinkActive="active">
                 <span class="mat-button-wrapper">
                     <mat-icon>info</mat-icon>

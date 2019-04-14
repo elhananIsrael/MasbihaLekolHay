@@ -3,6 +3,9 @@ import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import Product from '../models/product';
 
+import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { BaseService } from '../shared/services';
 import 'rxjs/add/operator/map';
 
 
@@ -11,6 +14,40 @@ import 'rxjs/add/operator/map';
 })
 export class ProductService {
 
+
+  private getUrl = '/api/products';
+  private saveUrl = '/api/product';
+
+  constructor(private baseService: BaseService) { }
+
+  getProducts(): Observable<any> {
+    return this.baseService.getAll(this.getUrl);
+  }
+
+  countProducts(): Observable<any> {
+    return this.baseService.count(this.getUrl);
+  }
+
+  addProduct(product): Observable<any> {
+    return this.baseService.add(this.saveUrl, product);
+  }
+
+  getProduct(product): Observable<any> {
+    return this.baseService.getById(this.saveUrl, product);
+  }
+
+  editProduct(product): Observable<any> {
+    return this.baseService.editById(this.saveUrl, product);
+  }
+
+  deleteProduct(product): Observable<any> {
+    return this.baseService.deleteById(this.saveUrl, product);
+  }
+
+
+
+  
+  /*
   api_url = 'http://localhost:8080';
   productUrl = `${this.api_url}/todo`;
 
@@ -50,6 +87,10 @@ export class ProductService {
     console.error('An error occurred', error); // for demo
     return Promise.reject(error.message || error);
   }
+
+*/
+
+
 }
 
 
