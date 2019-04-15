@@ -16,7 +16,9 @@ import { CatalogComponent} from './catalog/catalog.component';
 import { MyCartComponent} from './views/my-cart/my-cart.component';
 import { ChatComponent } from './chat/chat.component';
 import { MyUploadsComponent } from './views/my-uploads/my-uploads.component';
-
+import { BlogComponent } from './blog/blog.component'
+import { CreatePostComponent } from './blog/create-post/create-post.component';
+import { ViewPostComponent } from './blog/view-post/view-post.component';
 
 import { AuthGuardLogin, AuthGuardAdmin } from './shared/services';
 
@@ -34,6 +36,9 @@ const routes: Routes = [
   {path: 'catalog', component: CatalogComponent},
   {path: 'my-cart', component: MyCartComponent},
   { path: 'chat', component: ChatComponent, canActivate: [AuthGuardLogin] },
+  { path: 'blog', component: BlogComponent, canActivate: [AuthGuardLogin] },
+  {path: 'create-post', component: CreatePostComponent},
+  {path: 'view-post', component: ViewPostComponent},
   {path: 'my-uploads', component: MyUploadsComponent},
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 py-5">
+      <h1>Add New Post</h1>
+      <form [formGroup]="postForm" (ngSubmit)="onPostFormSubmit()" autocomplete="off" role="form">
+
+        <div class="form-group">
+          <label for="title">Post Title : </label>
+          <input [class.is-invalid]="title.invalid && (title.touched || title.dirty)" type="text" name="title" id="title"
+            class="form-control" placeholder="title" formControlName="title" />
+          <div *ngIf="title.invalid && (title.dirty || title.touched)" class="text-danger">
+            <small *ngIf="title.errors.required">
+              Title is required.
+            </small>
+            <small *ngIf="title.errors.minlength">
+              Title must be at least 5 characters long.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="imagePath">ImagePath : </label>
+          <input type="text" name="imagePath" id="imagePath" class="form-control" placeholder="imagePath"
+            formControlName="imagePath" />
+        </div>
+
+        <div class="form-group">
+          <label for="body">Post Body : </label>
+          <textarea [class.is-invalid]="body.invalid && (body.touched || body.dirty)" id="body" name="body" class="form-control"
+            placeholder="Post body" rows="4" required="required" formControlName="body"></textarea>
+          <div *ngIf="body.invalid && (body.dirty || body.touched)" class="text-danger">
+            <small *ngIf="body.errors.required">
+              Post body is required.
+            </small>
+            <small *ngIf="body.errors.minlength">
+              Post body must be at least 20 characters long.
+            </small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary button" [disabled]="!postForm.valid">Publish</button>
+        <button type="submit" class="btn btn-secondary button">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>

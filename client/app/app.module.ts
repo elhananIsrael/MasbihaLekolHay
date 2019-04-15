@@ -5,23 +5,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-
+import { MatMenuModule} from '@angular/material/menu';
 
 import { MaterialModule } from './shared/modules';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { JwtModule } from '@auth0/angular-jwt';
-import { AttendanceService } from './attendances/attendance.service';
+import { PostService } from './services/post.service';
 import { EmployeeService } from './employee/employee.service';
+import { AttendanceService } from './attendances/attendance.service';
+
 import {
   UserService, AuthService,
   AuthGuardLogin, AuthGuardAdmin,
   AppGlobals, BaseService
 } from './shared/services';
 
-
-import { AppComponent } from './app.component';
 import { AttendancesComponent } from './attendances/attendances.component';
+import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -29,10 +30,10 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { EmployeeComponent } from './employee/employee.component';
 import { ChatComponent } from './chat/chat.component';
-
+import { EmployeeComponent } from './employee/employee.component';
 import { AttendanceReportComponent } from './attendance-report/attendance-report.component';
+
 
 import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
@@ -41,6 +42,10 @@ import {MatGridListModule} from '@angular/material';
 import { MyCartComponent } from './views/my-cart/my-cart.component';
 import { NgChatModule } from 'ng-chat';
 import { MyUploadsComponent } from './views/my-uploads/my-uploads.component';
+import { BlogComponent } from './blog/blog.component';
+import { CreatePostComponent } from './blog/create-post/create-post.component';
+import { ViewPostComponent } from './blog/view-post/view-post.component';
+
 
 
 //
@@ -77,14 +82,18 @@ export function provideConfig() {
     AccountComponent,
     AdminComponent,
     NotFoundComponent,
+    ChatComponent,
+    MyUploadsComponent,
+    BlogComponent,
+    CreatePostComponent,
+    ViewPostComponent,
     EmployeeComponent,
     AttendanceReportComponent,
     CatalogComponent,
-    MyCartComponent,
-    ChatComponent,
-    MyUploadsComponent
+    MyCartComponent
   ],
-  imports: [
+  imports: [  
+    MatMenuModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -107,11 +116,12 @@ export function provideConfig() {
   providers: [// all are singleton
     AuthService,
     AuthGuardLogin,
-    AuthGuardAdmin,
     AttendanceService,
-    UserService,
     EmployeeService,
+    AuthGuardAdmin,
+    UserService,
     AppGlobals,
+    PostService,
     BaseService,
     {
       provide: AuthServiceConfig,

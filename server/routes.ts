@@ -5,13 +5,14 @@ import EmployeeCtrl from './controllers/employee';
 import AttendanceCtrl from './controllers/attendance';
 import ProductCtrl from './controllers/product';
 import OrderCtrl from './controllers/order';
-
+import PostCtrl from './controllers/post';
 
 import User from './models/user';
 import Employee from './models/employee';
 import Attendance from './models/attendance';
 import Product from './models/product';
 import Order from './models/order';
+import Post from './models/post'
 
 
 export default function setRoutes(app) {
@@ -23,6 +24,7 @@ export default function setRoutes(app) {
   const userCtrl = new UserCtrl();
   const productCtrl = new ProductCtrl();
   const orderCtrl = new OrderCtrl();
+  const postCtrl = new PostCtrl();
 
 
   // Users
@@ -34,6 +36,12 @@ export default function setRoutes(app) {
   router.route('/user/:id').get(userCtrl.get);
   router.route('/user/:id').put(userCtrl.update);
   router.route('/user/:id').delete(userCtrl.delete);
+
+  //blogs
+  router.route('/posts').get(postCtrl.getAll);
+  router.route('/post').post(postCtrl.insert);
+  router.route('/post/:id').get(postCtrl.get);
+
 
   // Employee
   router.route('/employees').get(employeeCtrl.getAll);

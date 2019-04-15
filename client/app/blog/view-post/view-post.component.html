@@ -1,0 +1,39 @@
+<div class="container page-height my-5">
+  <div *ngIf="this.postService.selectedPost" class="card mb-4">
+    <div class="card-header">
+      <h1 class="card-title">{{ this.postService.selectedPost.title }}</h1>
+      <div>
+        Posted by {{ this.postService.selectedPost.userName }} on
+        {{ this.postService.selectedPost.date }}
+      </div>
+    </div>
+    <div class="card-body">
+      <img class="img-thumbnail" [src]="this.postService.selectedPost.imagePath" width="200px" height="200px" alt="Card image cap" />
+      <p class="card-text">{{ this.postService.selectedPost.body }}</p>
+    </div>
+    <div class="card-footer text-muted">
+      <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()" autocomplete="off" role="form">
+        <div class="form-group">
+          <label for="commentText">Comment : </label>
+          <textarea [class.is-invalid]="commentText.invalid && (commentText.touched || commentText.dirty)" id="commentText"
+            name="commentText" class="form-control" placeholder="Post comment" rows="4" required="required"
+            formControlName="commentText"></textarea>
+          <div *ngIf="commentText.invalid && (commentText.dirty || commentText.touched)" class="text-danger">
+            <small *ngIf="commentText.errors.required">
+              Comment is required.
+            </small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary button" [disabled]="!commentForm.valid">Submit</button>
+        <button type="reset" class="btn btn-secondary button">Cancel</button>
+      </form>
+      <div *ngIf="this.postService.selectedPost.comments">
+        <div *ngFor="let comment of this.postService.selectedPost.comments">
+          <div class="text-primary row">{{ comment.userName }}</div>
+          <pre class="row ml-3">{{ comment.comment }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

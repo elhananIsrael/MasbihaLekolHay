@@ -65,7 +65,25 @@
                 </span>
             </a>
 
-             <a routerLink="/my-uploads" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
+            <button mat-button [matMenuTriggerFor]="belowMenu">
+                <i class="material-icons">forum</i>
+                Blog
+            </button>
+            <mat-menu #belowMenu="matMenu" yPosition="below">
+                <button routerLink="/create-post" class="mat-menu-item" routerLinkActive="active" *ngIf="auth.loggedIn">
+                    <span class="mat-button-wrapper">
+                        <span>Create post</span>
+                    </span>
+                </button>
+                <button routerLink="/blog" class="mat-menu-item" routerLinkActive="active" *ngIf="auth.loggedIn">
+                    <span class="mat-button-wrapper">
+                        <span>View post</span>
+                    </span>
+                </button>
+            </mat-menu>
+
+
+            <a routerLink="/my-uploads" class="mat-button" mat-button routerLinkActive="active" *ngIf="auth.loggedIn">
                 <span class="mat-button-wrapper">
                     <i class="material-icons">cloud_upload</i>
                     <span> My-Uploads</span>
@@ -94,9 +112,7 @@
                     <span class="fa fa-cart-arrow-down" style="font-size:24px;" aria-hidden="true"></span>
                 </span>
             </a>
-
         </mat-toolbar-row>
-
     </mat-toolbar>
     <mat-sidenav-container class="app-container">
         <router-outlet></router-outlet>
