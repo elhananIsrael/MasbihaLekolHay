@@ -16,19 +16,19 @@
         <input matInput placeholder="Description" name="description" formControlName="description">
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="MakerID" name="makerID" formControlName="makerID">
+      <mat-form-field [hidden]="true">
+        <input matInput placeholder="MakerID" name="makerID" formControlName="makerID" value={{this.auth.currentUser._id}} disabled="true" >
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="MakerName" name="makerName" formControlName="makerName">
+      <mat-form-field [hidden]="true">
+        <input matInput   placeholder="MakerName" name="makerName" formControlName="makerName"  value={{this.auth.currentUser.username}} disabled="true">
       </mat-form-field>
 
       <mat-form-field>
         <input matInput placeholder="Quantity" name="quantity" formControlName="quantity">
       </mat-form-field>
 
-
+<!--
       <mat-form-field>
         <mat-select placeholder="Is available" name="isAvailable" formControlName="isAvailable">
           <mat-option *ngFor="let blnType of booleanTypeList" [value]="blnType.value">
@@ -36,6 +36,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      -->
 
       <mat-form-field>
         <input matInput placeholder="Price" name="price" formControlName="price">
@@ -53,7 +54,7 @@
         <input matInput placeholder="Url" name="url" formControlName="url">
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit"  [disabled]="!addProductForm.valid" >Add</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!addProductForm.valid" >Add</button>
     </form>
   </mat-card-content>
 </mat-card>
@@ -69,7 +70,7 @@
           <th>NAME</th> 
           <th>DESCRIPTION</th>                  
           <th>QUANTITY</th>
-          <th>IS AVAILABLE</th>          
+        <!--  <th>IS AVAILABLE</th>  -->         
           <th>PRICE</th>
           <th>PHONE</th>
           <th>ADDRESS</th>
@@ -87,7 +88,6 @@
           <td>{{product_item.name}}</td>
           <td>{{product_item.description}}</td>
           <td>{{product_item.quantity}}</td>
-          <td>{{product_item.isAvailable}}</td>
           <td>{{product_item.price}}</td>
           <td>{{product_item.phone}}</td>
           <td>{{product_item.address}}</td>

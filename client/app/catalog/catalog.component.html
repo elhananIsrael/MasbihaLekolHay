@@ -24,8 +24,13 @@
         <div class="h-bg-inner"></div>
       </div>
 
-      <a class="cart"  type="button" >
+      <a class="cart"  type="button"  (click)="addToMyCart(product_item._id)">
         <span class="price">₪{{product_item.price}}</span>
+       <!--
+        <div class="snipcart-details ">
+						<input type="hidden" name="itemID" value={{product_item._id}} />
+				</div>
+       -->
         <span class="add-to-cart">
               <span class="txt">Add in cart</span>
             </span>

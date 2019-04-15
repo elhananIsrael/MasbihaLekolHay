@@ -7,6 +7,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 
 import { ProductService } from '../../services/product.service';
 import { ToastComponent } from '../../shared/toast/toast.component';
+import { AuthService } from '../../shared/services/auth.service';
+
 
 
 
@@ -16,9 +18,6 @@ import { ToastComponent } from '../../shared/toast/toast.component';
   styleUrls: ['./my-uploads.component.css']
 })
 export class MyUploadsComponent implements OnInit {
-
-  //productsList = PRODUCTS;
-
 
   product = {};
   productsList = [];
@@ -30,8 +29,9 @@ export class MyUploadsComponent implements OnInit {
   addProductForm: FormGroup;
   name = new FormControl('', Validators.required);
   description = new FormControl('', Validators.required);
+  makerID = new FormControl(this.auth.currentUser._id);
+  makerName = new FormControl(this.auth.currentUser.username);
   quantity = new FormControl('', Validators.required);
-  isAvailable = new FormControl('', Validators.required);
   price = new FormControl('', Validators.required);
   phone = new FormControl('', Validators.required);
   address = new FormControl('', Validators.required);
@@ -40,6 +40,7 @@ export class MyUploadsComponent implements OnInit {
 
   constructor(private productService: ProductService,
     private formBuilder: FormBuilder,
+    private auth: AuthService,
     private http: Http,
     public toast: ToastComponent) { }
 
@@ -50,29 +51,35 @@ export class MyUploadsComponent implements OnInit {
     this.addProductForm = this.formBuilder.group({
       name: this.name,
       description: this.description,
+      makerID: this.auth.currentUser._id,
+      makerName: this.auth.currentUser.username,
       quantity: this.quantity,
-      isAvailable: this.isAvailable,
       price: this.price,
       phone: this.phone,
       address: this.address,
       url: this.url,
     });
 
-    this.booleanTypeList.push(
+ /*   this.booleanTypeList.push(
       { value: 1, viewValue: 'TRUE' },
       { value: 2, viewValue: 'FALSE' });
-
+*/
   }
 
 
 
   // getProducts
   getProducts() {
-    this.productService.getProducts().subscribe(
+  this.productService.getByIdProductsUploadUser(this.auth.currentUser._id).subscribe(
       data => this.productsList = data,
       error => console.log(error),
-      () => this.isLoading = false
-    );
+      () => this.isLoading = false);
+      
+    /*  this.productService.getProducts().subscribe(
+      data => this.productsList = data,
+      error => console.log(error),
+      () => this.isLoading = false);
+      console.log(this.productsList);*/
   }
 
   // addProduct
@@ -82,6 +89,19 @@ export class MyUploadsComponent implements OnInit {
         const newPct = res.json();
         this.productsList.push(newPct);
         this.addProductForm.reset();
+
+      this.addProductForm = this.formBuilder.group({
+          name: this.name,
+          description: this.description,
+          makerID: this.auth.currentUser._id,
+          makerName: this.auth.currentUser.username,
+          quantity: this.quantity,
+          price: this.price,
+          phone: this.phone,
+          address: this.address,
+          url: this.url,
+        });
+
         this.toast.setMessage('item added successfully.', 'success');
       },
       error => console.log(error)

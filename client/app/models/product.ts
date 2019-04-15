@@ -6,7 +6,6 @@ export default class Product {
   makerID: String;
   makerName: String;
   quantity: Number;
-  isAvailable: Boolean;
   price: Number;
   phone: String;
   address: String;
@@ -19,7 +18,6 @@ export default class Product {
     this.makerID = '';
     this.makerName = '';
     this.quantity = 1;
-    this.isAvailable = true;
     this.price = 0;
     this.phone = '';
     this.address = '';

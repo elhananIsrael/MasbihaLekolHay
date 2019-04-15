@@ -3,16 +3,21 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { UserService } from '../services/user.service';
+import { OrderService } from 'client/app/services/order.service';
+import { default as Order } from '../../models/Order';
+
 
 @Injectable()
 export class AuthService {
   loggedIn = false;
   isAdmin = false;
 
+  ourOrder: Order;
   currentUser = { _id: '', username: '', role: '' };
   jwtHelper: JwtHelperService = new JwtHelperService();
 
-  constructor(private userService: UserService,
+  constructor(private userService: UserService, private orderService: OrderService,
+  //constructor(private userService: UserService,
     private router: Router) {
     const token = localStorage.getItem('token');
     if (token) {
@@ -38,6 +43,7 @@ export class AuthService {
         localStorage.setItem('token', res.token);
         const decodedUser = this.decodeUserFromToken(res.token);
         this.setCurrentUser(decodedUser);
+        this.checkIfHaveCurrentOrder();
         return this.loggedIn;
       }
     );
@@ -62,6 +68,43 @@ export class AuthService {
     this.currentUser.role = decodedUser.role;
     decodedUser.role === 'admin' ? this.isAdmin = true : this.isAdmin = false;
     delete decodedUser.role;
+  }
+
+  checkIfHaveCurrentOrder() {
+   /* this.ourOrder.allProductsID = [ '7', '8' ];
+    this.ourOrder.date = new Date();
+    this.ourOrder.price = 4;
+    this.ourOrder.userID = '3';
+    this.ourOrder.userName = 'yosef';
+*/
+    /*var currentOrder2={
+    allProductsID: [ '18', '26'],
+    date: '20/02/2002',
+    userID: '188',
+    userName: 'moshe',
+    status: 'CURRENT',
+    price: 0 };*/
+    //console.log(this.ourOrder);
+    //this.orderService.addOrder(this.checkIfHaveCurrentOrder.arguments.currentOrder2);
+    //.subscribe(
+
+    /*let currentOrder;
+    this.orderService.getByIdCurrentOrderOfUser(this.currentUser._id).subscribe(
+      data => currentOrder = data,
+      error => console.log(error),
+    );
+    //console.log('vjdlkvjsdlvksj;');
+   /* if (!currentOrder) {
+    console.log('have not current order');
+    }
+    console.log('have current order');
+
+
+   .subscribe(
+    data => this.productsList = data,
+    error => console.log(error),
+    () => this.isLoading = false
+  );*/
   }
 
 }

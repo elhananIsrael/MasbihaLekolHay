@@ -9,7 +9,7 @@ enum Status
 export default class Order {
 
     _id: String;
-    name: String;
+    //name: String;
     allProductsID:  String[];
     date: Date;
     userID: String;
@@ -20,7 +20,7 @@ export default class Order {
     constructor()
     {
       this._id = '';
-      this.name = '';
+     // this.name = '';
       this.allProductsID = [];
       this.date = new Date();
       this.userID = '';

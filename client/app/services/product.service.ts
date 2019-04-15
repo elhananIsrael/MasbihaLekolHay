@@ -18,11 +18,28 @@ export class ProductService {
   private getUrl = '/api/products';
   private saveUrl = '/api/product';
 
-  constructor(private baseService: BaseService) { }
+  ///////////////////////////////
+  api_url = 'http://localhost:3000/api';
+  productUrl = `${this.api_url}/product`;
+  ///////////////////////////////
+
+  constructor(private baseService: BaseService, private http: HttpClient) { }
 
   getProducts(): Observable<any> {
     return this.baseService.getAll(this.getUrl);
   }
+
+  ///////////////////////////////////////
+  // Read product, takes no arguments return Product Object
+  getProductsObjects(): Observable<Product[]>{
+    let getUrl = 'http://localhost:3000/api/products';
+       //`${this.productUrl}/list`;
+    return this.http.get(getUrl)
+      .map(res  => {
+        return res['data'].docs as Product[];
+      })
+  }
+  /////////////////////////////////////////
 
   countProducts(): Observable<any> {
     return this.baseService.count(this.getUrl);
@@ -35,6 +52,21 @@ export class ProductService {
   getProduct(product): Observable<any> {
     return this.baseService.getById(this.saveUrl, product);
   }
+
+
+  ////////////////////////////////////////////////////////////////////////
+
+  // Get by user id products Upload User productsUploadUser
+  getByIdProductsUploadUser(entity: String): Observable<any> /*Observable<Product[]>*/ {
+    return this.http.get( 'http://localhost:3000/api/productsUploadUser' + `/${entity}`);
+  //  .map((res: Response) => res.json());
+    /*.map(res => res.json());*/
+   /* .map(res  => {
+      return res['data'].docs as Array<any>;
+    });*/
+  }
+
+  ///////////////////////////////////////////////////////////////////////
 
   editProduct(product): Observable<any> {
     return this.baseService.editById(this.saveUrl, product);

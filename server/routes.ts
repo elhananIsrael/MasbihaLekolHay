@@ -58,6 +58,8 @@ export default function setRoutes(app) {
   router.route('/product/:id').get(productCtrl.get);
   router.route('/product/:id').put(productCtrl.update);
   router.route('/product/:id').delete(productCtrl.delete);
+  router.route('/productsUploadUser/:id').get(productCtrl.getAllProductsUploadUser);
+
 
     // Orders
     router.route('/orders').get(orderCtrl.getAll);
@@ -66,6 +68,9 @@ export default function setRoutes(app) {
     router.route('/order/:id').get(orderCtrl.get);
     router.route('/order/:id').put(orderCtrl.update);
     router.route('/order/:id').delete(orderCtrl.delete);
+    router.route('/ordersOfUser/:id').get(orderCtrl.getAllOrdersOfUser);
+    router.route('/currentOrderOfUser/:id').get(orderCtrl.getCurrentOrderOfUser);
+
 
   // Apply the routes to our application with the prefix /api
   app.use('/api', router);
