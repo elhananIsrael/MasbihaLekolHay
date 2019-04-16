@@ -6,6 +6,7 @@
  
 <!--auto list:-->
   <div class="el-wrapper"   *ngFor="let product_item of productsList" >
+  
     <div class="box-up">
       <img class="img" type="image/x-icon"  style="height: 100%; width: 100% " src="{{product_item.url}}" alt="">
 
@@ -25,10 +26,10 @@
       <div class="h-bg">
         <div class="h-bg-inner"></div>
       </div>
-
-      <a class="cart"  type="button" (click)="addProductToMyCart(product_item._id)" >
+      <a class="cart"  type="button" (click)="addProductToMyCart(product_item)" >
       <!---->
         <span class="price">₪{{product_item.price}}</span>
+       
        <!--
         <div class="snipcart-details ">
 						<input type="hidden" name="itemID" value={{product_item._id}} />

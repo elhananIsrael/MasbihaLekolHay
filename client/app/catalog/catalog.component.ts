@@ -24,7 +24,7 @@ export class CatalogComponent implements OnInit {
 
  // productsList = PRODUCTS;
   productsList = [];
-  currentOrder: Order;
+  currentOrder: any;
 
   constructor(private productService: ProductService,  private orderService: OrderService,
     private formBuilder: FormBuilder,
@@ -44,24 +44,26 @@ export class CatalogComponent implements OnInit {
 
     this.getAllProducts();
     this.getCurrentOrder();
-    console.log('wwwww: ' + JSON.stringify(this.currentOrder));
+    //this.addProductToMyCart( this.auth.currentUser);
     }
 
 
 
 
   // addProductToMyCart
-  
+
   addProductToMyCart(productID: any): void {
+    
     if(!this.auth.loggedIn)
     {
       this.toast.setMessage('You need login first.', 'success');
+      
 
     } else {
-
-      this.orderService.getByIdCurrentOrderOfUser(this.auth.currentUser._id).subscribe(
+      console.log('ddddddddddddd');
+      this.orderService.getByIdCurrentOrderOfUser(this.auth.currentUser).subscribe(
         res => {
-          this.currentOrder = res.json();
+          this.currentOrder = res;
           if(!this.currentOrder)
           {this.orderService.addOrder(
              {
@@ -119,7 +121,7 @@ getAllProducts() {
 }
 
 getCurrentOrder(){
-  this.orderService.getByIdCurrentOrderOfUser(this.auth.currentUser._id).subscribe(
+  this.orderService.getByIdCurrentOrderOfUser(this.auth.currentUser).subscribe(
     data => this.currentOrder = data,
     error => console.log(error),
     () => this.isLoading = false
