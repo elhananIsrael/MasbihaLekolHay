@@ -34,6 +34,11 @@ export class BaseService {
     return this.http.get(url + `/${entity._id}`).map(res => res.json());
   }
 
+  // Get by id
+  getById2(url: any, entity: any): Observable<any> {
+    return this.http.get(url + `/${entity}`).map(res => res.json());
+  }
+
   // Update by id
   editById(url: any, entity: any): Observable<any> {
     return this.http.put(url + `/${entity._id}`, JSON.stringify(entity), this.options);

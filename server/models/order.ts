@@ -17,6 +17,18 @@ const orderSchema = new mongoose.Schema({
   price: Number
 });
 
+
+orderSchema.statics.CREATE = async function(order) {
+  return this.create({
+    allProductsID:  order[0],
+    date: order[1],
+    userID: order[2],
+    userName: order[3],
+    status: order[4],
+    price: order[5]
+  });
+}
+
 const Order = mongoose.model('Order', orderSchema);
 
 export default Order;

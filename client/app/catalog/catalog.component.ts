@@ -51,7 +51,53 @@ export class CatalogComponent implements OnInit {
 
 
   // addProductToMyCart
-  addProductToMyCart(productID: String): void {
+  
+  addProductToMyCart(productID: any): void {
+    if(!this.auth.loggedIn)
+    {
+      this.toast.setMessage('You need login first.', 'success');
+
+    } else {
+
+      this.orderService.getByIdCurrentOrderOfUser(this.auth.currentUser._id).subscribe(
+        res => {
+          this.currentOrder = res.json();
+          if(!this.currentOrder)
+          {this.orderService.addOrder(
+             {
+              'allProductsID' : [ ],
+              'date' : new Date(),
+              'userID' : this.auth.currentUser._id,
+              'userName' : this.auth.currentUser.username,
+              'status' : 'CURRENT',
+              'price' : 0
+          }
+          )}
+          this.currentOrder.allProductsID.push(productID);
+          this.orderService.editOrder(this.currentOrder);
+        //  this.productsList.push(newPct);
+         // this.addProductForm.reset();
+  /*
+        this.addProductForm = this.formBuilder.group({
+            name: this.name,
+            description: this.description,
+            makerID: this.auth.currentUser._id,
+            makerName: this.auth.currentUser.username,
+            quantity: this.quantity,
+            price: this.price,
+            phone: this.phone,
+            address: this.address,
+            url: this.url,
+          });*/
+  
+          this.toast.setMessage('item added to your cart successfully.', 'success');
+        },
+        error => console.log(error)
+      );
+
+    }
+
+   /* console.log('start adding to my cart');
     if (this.auth.loggedIn) {
     this.currentOrder.allProductsID.push(productID);
     this.orderService.editOrder(this.currentOrder).subscribe(
@@ -59,6 +105,7 @@ export class CatalogComponent implements OnInit {
         error => console.log(error)
       );
     } else { this.toast.setMessage('Please login.', 'success'); }
+    */
   }
 
 

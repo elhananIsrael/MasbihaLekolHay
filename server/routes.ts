@@ -55,6 +55,9 @@ export default function setRoutes(app) {
     router.route('/order/:id').delete(orderCtrl.delete);
     router.route('/ordersOfUser/:id').get(orderCtrl.getAllOrdersOfUser);
     router.route('/currentOrderOfUser/:id').get(orderCtrl.getCurrentOrderOfUser);
+    //router.route('/updateProductInCurrentUser/:id').put(orderCtrl.updateProductInCurrentUser);
+
+    
 
 
   // Apply the routes to our application with the prefix /api

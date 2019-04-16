@@ -8,6 +8,7 @@ import { BaseService } from '../shared/services/base.service';
 import { HttpClient } from '@angular/common/http';
 import Product from '../models/product';
 import Order from '../models/order';
+import { AnimationKeyframesSequenceMetadata } from '@angular/animations';
 
 import  {AuthService } from './../shared/services/auth.service'
 
@@ -33,49 +34,66 @@ export class OrderService {
 ////////////////////////////////////////////////////////////////////////
 
   // Get by user id all orders of user
-  getByIdAllOrdersOfUser(entity: any): Observable<Order[]> {
-    return this.http.get( '/api/ordersOfUser' + `/${entity}`).map(res  => {
+  getByIdAllOrdersOfUser(entity: any): Observable<any> {
+    //return this.http.get( '/api/ordersOfUser' + `/${entity}`).map(res => res.json());
+    return this.baseService.getById('/api/ordersOfUser', entity);
+
+    /*.map(res  => {
       return res['data'].docs as Order[];
-    });
+    });*/
   }
 
   ////////////////////////////////////////////////////////////////////////
 
   // Get by user id Current Order Of User
   getByIdCurrentOrderOfUser(entity: any): Observable<any> {
-    return this.http.get( '/api/currentOrderOfUser' + `/${entity}`).map(res  => {
-      let order = res;// as Order;
-      console.log('wwwww: ' + JSON.stringify(order));
-      if (order == undefined || order == null) {
-        //  order._id = null;
-        let newOrder : any = {};
+    // return this.http.get( '/api/currentOrderOfUser' + `/${entity}`).map(res  => {
+    //   let order = res;// as Order;
+    //   console.log('wwwww: ' + JSON.stringify(order));
+    //   if (order == undefined || order == null) {
+    //     //  order._id = null;
+    //     let newOrder : any = {};
 
-        //  order = new Order;
-         newOrder.userID = this.auth.currentUser._id;
-         newOrder.userName = this.auth.currentUser.username;
-         newOrder.price = 0;
-        //  order.date =  Date.now;
-         this.addOrder(newOrder);
-        // this.baseService.add(this.saveUrl, order);
-      }
-      console.log('wwwww: ' + JSON.stringify(order));
+    //     //  order = new Order;
+    //      newOrder.userID = this.auth.currentUser._id;
+    //      newOrder.userName = this.auth.currentUser.username;
+    //      newOrder.price = 0;
+    //     //  order.date =  Date.now;
+    //      this.addOrder(newOrder);
+    //     // this.baseService.add(this.saveUrl, order);
+    //   }
+    //   console.log('wwwww: ' + JSON.stringify(order));
 
-      return order;
-    });
-  }
+    //   return order;
+    // });
+
+   // return this.http.get( '/api/currentOrderOfUser' + `/${entity}`);
+    return this.baseService.getById('/api/currentOrderOfUser', entity);
+
+    /*.map(res  => {
+      return res['data'].docs as Order;
+    });*/
+    }
 
   ///////////////////////////////////////////////////////////////////////
+/*  //Create order, takes a Order Object
+createOrder(order: Order): Observable<any[]>{
+  return this.http.post('/api/createOrderByObject', order);
+  .map(res  => {
+      return res["data"].docs as Order[];
+    })
+}*/
 
   ///////////////////////////////////////
   // Read order, takes no arguments return Order Object
-  getOrdersObjects(): Observable<Order[]>{
+ /* getOrdersObjects(): Observable<any[]> {
     let getUrl = 'http://localhost:3000/api/orders';
        //`${this.productUrl}/list`;
-    return this.http.get(getUrl)
-      .map(res  => {
+    return this.http.get(getUrl);
+    /*  .map(res  => {
         return res['data'].docs as Order[];
-      })
-  }
+      })*/
+//}
   /////////////////////////////////////////
 /*
     ///////////////////////////////////////

@@ -13,6 +13,30 @@ export default class OrderCtrl extends BaseCtrl {
   });
 }
 
+/*
+// Update by id
+updateProductInCurrentUser = (req, res) => {
+  this.model.findOneAndUpdate( {_id: req.params.id},
+  //  {$and: [ {userID: req.params.id}, {status: 'CURRENT'} ] },
+      { '$push': { 'allProductsID': req.body } }, (err)  => {
+    if (err) { return console.error(err); }
+    res.sendStatus(200);
+  });
+}
+*/
+/*
+// create todo and send back all todos after creation
+router.post('/, async (req, res) => {
+  try {
+      // create a todo, information comes from request from Angular
+      await ToDo.CREATE(req.body.text);
+      res.json(await ToDo.REQUEST()); // return all todos in JSON format
+  } catch (err) {
+      res.send(err);
+  }
+});*/
+
+
 
 // Get by userID him current order
 getCurrentOrderOfUser = (req, res) => {
@@ -26,6 +50,8 @@ getCurrentOrderOfUser = (req, res) => {
     res.json(obj);
   });
 }
+
+
 
 /*
 createTodo(todo: Order): Observable<Order[]>{
