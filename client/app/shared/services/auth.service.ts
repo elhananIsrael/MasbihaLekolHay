@@ -16,7 +16,8 @@ export class AuthService {
   currentUser = { _id: '', username: '', role: '' };
   jwtHelper: JwtHelperService = new JwtHelperService();
 
-  constructor(private userService: UserService, private orderService: OrderService,
+  constructor(private userService: UserService,
+    //  private orderService: OrderService,
   //constructor(private userService: UserService,
     private router: Router) {
     const token = localStorage.getItem('token');
@@ -71,6 +72,7 @@ export class AuthService {
   }
 
   checkIfHaveCurrentOrder() {
+
    /* this.ourOrder.allProductsID = [ '7', '8' ];
     this.ourOrder.date = new Date();
     this.ourOrder.price = 4;

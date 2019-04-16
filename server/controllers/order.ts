@@ -17,6 +17,11 @@ export default class OrderCtrl extends BaseCtrl {
 // Get by userID him current order
 getCurrentOrderOfUser = (req, res) => {
   this.model.findOne({$and: [ {userID: req.params.id}, {status: 'CURRENT'} ] }, (err, obj) => {
+    // console.log('wwwww: ' +obj)
+    // if (obj == null) {
+    //   obj = new Order;
+    // }
+    // console.log('wwwww: ' +obj)
     if (err) { return console.error(err); }
     res.json(obj);
   });

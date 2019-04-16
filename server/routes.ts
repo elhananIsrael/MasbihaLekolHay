@@ -1,15 +1,11 @@
 import * as express from 'express';
 
 import UserCtrl from './controllers/user';
-import EmployeeCtrl from './controllers/employee';
-import AttendanceCtrl from './controllers/attendance';
 import ProductCtrl from './controllers/product';
 import OrderCtrl from './controllers/order';
 import PostCtrl from './controllers/post';
 
 import User from './models/user';
-import Employee from './models/employee';
-import Attendance from './models/attendance';
 import Product from './models/product';
 import Order from './models/order';
 import Post from './models/post'
@@ -19,8 +15,6 @@ export default function setRoutes(app) {
 
   const router = express.Router();
 
-  const employeeCtrl = new EmployeeCtrl();
-  const attendanceCtrl = new AttendanceCtrl();
   const userCtrl = new UserCtrl();
   const productCtrl = new ProductCtrl();
   const orderCtrl = new OrderCtrl();
@@ -41,23 +35,6 @@ export default function setRoutes(app) {
   router.route('/posts').get(postCtrl.getAll);
   router.route('/post').post(postCtrl.insert);
   router.route('/post/:id').get(postCtrl.get);
-
-
-  // Employee
-  router.route('/employees').get(employeeCtrl.getAll);
-  router.route('/employees/count').get(employeeCtrl.count);
-  router.route('/employee').post(employeeCtrl.insert);
-  router.route('/employee/:id').get(employeeCtrl.get);
-  router.route('/employee/:id').put(employeeCtrl.update);
-  router.route('/employee/:id').delete(employeeCtrl.delete);
-
-  // Attendaces
-  router.route('/attendances').get(attendanceCtrl.getAll);
-  router.route('/attendances/count').get(attendanceCtrl.count);
-  router.route('/attendance').post(attendanceCtrl.insert);
-  router.route('/attendance/:id').get(attendanceCtrl.get);
-  router.route('/attendance/:id').put(attendanceCtrl.update);
-  router.route('/attendance/:id').delete(attendanceCtrl.delete);
 
    // Products
    router.route('/products').get(productCtrl.getAll);

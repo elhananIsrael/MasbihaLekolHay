@@ -24,6 +24,8 @@ export class BaseService {
 
   // add
   add(url: any, entity: any): Observable<any> {
+    console.log('wwwww: ' + JSON.stringify(url) + ' ' + JSON.stringify(entity));
+
     return this.http.post(url, JSON.stringify(entity), this.options);
   }
 

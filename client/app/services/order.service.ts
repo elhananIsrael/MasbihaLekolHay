@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 import Product from '../models/product';
 import Order from '../models/order';
 
+import  {AuthService } from './../shared/services/auth.service'
+
 
 
 @Injectable({
@@ -19,7 +21,9 @@ export class OrderService {
   private getUrl = '/api/orders';
   private saveUrl = '/api/order';
 
-  constructor(private baseService: BaseService, private http: HttpClient) { }
+  constructor(private baseService: BaseService,
+    private auth: AuthService,
+     private http: HttpClient) { }
 
   getOrders(): Observable<any> {
     return this.baseService.getAll(this.getUrl);
@@ -38,9 +42,25 @@ export class OrderService {
   ////////////////////////////////////////////////////////////////////////
 
   // Get by user id Current Order Of User
-  getByIdCurrentOrderOfUser(entity: any): Observable<Order> {
+  getByIdCurrentOrderOfUser(entity: any): Observable<any> {
     return this.http.get( '/api/currentOrderOfUser' + `/${entity}`).map(res  => {
-      return res['data'].docs as Order;
+      let order = res;// as Order;
+      console.log('wwwww: ' + JSON.stringify(order));
+      if (order == undefined || order == null) {
+        //  order._id = null;
+        let newOrder : any = {};
+
+        //  order = new Order;
+         newOrder.userID = this.auth.currentUser._id;
+         newOrder.userName = this.auth.currentUser.username;
+         newOrder.price = 0;
+        //  order.date =  Date.now;
+         this.addOrder(newOrder);
+        // this.baseService.add(this.saveUrl, order);
+      }
+      console.log('wwwww: ' + JSON.stringify(order));
+
+      return order;
     });
   }
 

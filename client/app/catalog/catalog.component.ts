@@ -44,7 +44,8 @@ export class CatalogComponent implements OnInit {
 
     this.getAllProducts();
     this.getCurrentOrder();
-  }
+    console.log('wwwww: ' + JSON.stringify(this.currentOrder));
+    }
 
 
 

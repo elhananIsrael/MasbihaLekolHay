@@ -12,8 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { PostService } from './services/post.service';
-import { EmployeeService } from './employee/employee.service';
-import { AttendanceService } from './attendances/attendance.service';
 
 import {
   UserService, AuthService,
@@ -21,7 +19,6 @@ import {
   AppGlobals, BaseService
 } from './shared/services';
 
-import { AttendancesComponent } from './attendances/attendances.component';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
@@ -31,8 +28,6 @@ import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ChatComponent } from './chat/chat.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { AttendanceReportComponent } from './attendance-report/attendance-report.component';
 
 
 import { SocialLoginModule, AuthServiceConfig, LoginOpt } from 'angularx-social-login';
@@ -74,7 +69,6 @@ export function provideConfig() {
 @NgModule({
   declarations: [
     AppComponent,
-    AttendancesComponent,
     AboutComponent,
     RegisterComponent,
     LoginComponent,
@@ -87,8 +81,6 @@ export function provideConfig() {
     BlogComponent,
     CreatePostComponent,
     ViewPostComponent,
-    EmployeeComponent,
-    AttendanceReportComponent,
     CatalogComponent,
     MyCartComponent
   ],
@@ -116,8 +108,6 @@ export function provideConfig() {
   providers: [// all are singleton
     AuthService,
     AuthGuardLogin,
-    AttendanceService,
-    EmployeeService,
     AuthGuardAdmin,
     UserService,
     AppGlobals,
